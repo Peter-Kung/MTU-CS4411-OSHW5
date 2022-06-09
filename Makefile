@@ -9,3 +9,5 @@ all: main
 
 main:
 	$(CC) $(LIB) $(SOURCE) $(CFLAG) $(TARGET)
+clean:
+	rm $(TARGET)

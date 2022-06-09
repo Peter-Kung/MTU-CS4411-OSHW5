@@ -6,20 +6,54 @@
 
 int timeQuntum = 2;
 jmp_buf JumpBuffer;
+extern void f1();
+extern void f2();
+extern void f3();
+extern void f4();
+extern void f5();
+
+
+typedef struct pcb
+{
+	int processID;
+	int status;
+	void (*fn)(void);
+	struct pcb *next;
+} PCB;
+
+static void init(PCB **, PCB **);
+
 int main()
 {
+	PCB *cur = NULL;
+	PCB *move = NULL;
+	/* get ready queue */
+	init(&cur, &move);
 	signal(SIGINT, shell);
 	int val = setjmp(JumpBuffer);
-	switch(val) {
-	case 0:
-		f1();
-	case 1:
-		f2();
-	case 2:
-		f3();
-	} 
+	if (val != 0)
+		move = move->next;
+	(move->fn)();
 }	
 
+static void init(PCB **cur, PCB **move)
+{
+	void (*fn[3])(void);
+	fn[0] = f1;
+	fn[1] = f2;
+	fn[2] = f3;
+
+	PCB **ptr = cur;
+	for (int i = 1;i <= 3;++i) {
+		*ptr = (PCB *)malloc(sizeof(PCB));
+		(*ptr)->processID = i;
+		(*ptr)->status   = RUNNING;
+		(*ptr)->fn = fn[i - 1]; 
+		ptr = &(*ptr)->next;
+	}
+	*ptr = *cur;
+	*move = *cur;
+}
 
 void shell(int argv) {
 	if (argv == SIGINT) {	

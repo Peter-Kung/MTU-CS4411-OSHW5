@@ -4,7 +4,7 @@
 #define   MAX_RANDOM   100000L
 
 extern int timeQuntum;
-extern jmp_bug JumpBuffer;
+extern jmp_buf JumpBuffer;
 void  Delay(void)
 {
      long  i;
@@ -45,7 +45,7 @@ void  f3(void)
           Delay();
 	val++;
      }
-	longjmp(JumpBuffer, 0);
+	longjmp(JumpBuffer, 3);
 }
 
 void  f4(void)
