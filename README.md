@@ -4,10 +4,13 @@ In this assignment, you are to write a program, using signals (and "non-local" g
 The major part of this programming assignment is to implement the following:
 
   1. **Periodically call one of the several given functions**
+  
   Each function is assigned a time quantum. Once it is called, it can use the CPU for that amount of time (i.e., real time rather than CPU time). The call to these functions is in a round-robin order. Suppose the time quantum is set to 1 second and there are three functions, f1(), f2() and f3(). Then, f1() is called and runs for 1 second (i.e., real time); f2() is called and runs for 1 second; f3() is called and runs for 1 second; f1() is called and runs for 1 second; and so on. The default time quantum value is 1 second.
   2. **A Ctrl-C handler**
+  
   This Ctrl-C handler should be activated when the system detects a Ctrl-C.
   3. **A Shell**
+
   The Ctrl-C handler should transfer the control to this shell for further processing. Once the shell is entered, it should display the following prompt:
 
           Shell ->
