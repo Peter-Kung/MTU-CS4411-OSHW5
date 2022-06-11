@@ -20,7 +20,7 @@ The major part of this programming assignment is to implement the following:
           Shell -> k 2
           Function 2 has been killed.
           
-    A killed function should not run again. If the integer argument indicates a function that does not exist (e.g., killed previously), you should display a message. For example, if function 4 was killed sometime ago, then
+     A killed function should not run again. If the integer argument indicates a function that does not exist (e.g., killed previously), you should display a message. For example, if function 4 was killed sometime ago, then
 
           Shell -> k 4
           Function 4 does not exist.
@@ -74,8 +74,11 @@ Click here to download a copy of funct5.c. Note that you should not change anyth
 
 ## Program Specification
 Please note the following specifications. Without observing these rules, you may risk lower grades.
-    1. You have to use functions in file funct5.c for scheduling purpose. You have to link these functions with your program files.
-    2. You have to implement all commands. While your shell is processing command input and output, all other events (e.g., Ctrl-C and alarm) must be masked off so that the shell will not be interfered. Since the system may not be able to keep up with your Ctrl-C key press, you might want to quickly hit Ctrl-C a few times.
-    3. Use signal.h and signal() to catch and handle signals. Other methods are simply unacceptable .
-    4. Feel free to use setjmp() and longjmp() to switch back and forth between user functions and your scheduler, although they really are not needed.
-    5. Use alarm() system call to simulate a time quantum.
+
+   1. You have to use functions in file funct5.c for scheduling purpose. You have to link these functions with your program files.
+   2. You have to implement all commands. While your shell is processing command input and output, all other events (e.g., Ctrl-C and alarm) must be masked off so that the shell will not be interfered. Since the system may not be able to keep up with your Ctrl-C key press, you might want to quickly hit Ctrl-C a few times.
+   3. Use signal.h and signal() to catch and handle signals. Other methods are simply unacceptable .
+   4. Feel free to use setjmp() and longjmp() to switch back and forth between user functions and your scheduler, although they really are not needed.
+   5. Use alarm() system call to simulate a time quantum.
+
+[OriginURL](https://pages.mtu.edu/~shene/FORUM/Taiwan-Forum/ComputerScience/003-OS/PROG/PG5/prog5.html)
